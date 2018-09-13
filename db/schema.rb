@@ -10,9 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20180913145700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "mushrooms", force: :cascade do |t|
+    t.string "classification"
+    t.string "cap_shape"
+    t.string "cap_surface"
+    t.string "cap_color"
+    t.string "bruises"
+    t.string "odor"
+    t.string "gill_attachment"
+    t.string "gill_spacing"
+    t.string "gill_size"
+    t.string "gill_color"
+    t.string "stalk_shape"
+    t.string "stalk_root"
+    t.string "stalk_surface_above_ring"
+    t.string "stalk_surface_below_ring"
+    t.string "stalk_color_above_ring"
+    t.string "stalk_color_below_ring"
+    t.string "veil_type"
+    t.string "veil_color"
+    t.string "ring_number"
+    t.string "ring_type"
+    t.string "spore_print_color"
+    t.string "population"
+    t.string "habitat"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
