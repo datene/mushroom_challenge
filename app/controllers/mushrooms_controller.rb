@@ -3,9 +3,16 @@ class MushroomsController < ApplicationController
     load_category_options
     collect_mushrooms
     set_mushroom_attributes
+    death_calculator
   end
 
   private
+
+  def death_calculator
+    poisonous_mushrooms = @mushrooms.where(classification: "poisonous").count
+    chance = (poisonous_mushrooms == 0) ? 0 : ((poisonous_mushrooms.to_f / @mushrooms.count) * 100).round(2)
+    @chance_of_death = chance
+  end
 
   def collect_mushrooms
     if params[:query]
