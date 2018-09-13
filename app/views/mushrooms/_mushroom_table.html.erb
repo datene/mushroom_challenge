@@ -1,0 +1,25 @@
+<div class="table-container">
+  <table class="table table-striped table-condensed table-responsive" id="mushroom-table">
+    <thead>
+      <tr>
+        <% @mushroom_attributes.each do |attribute| %>
+        <th>
+          <%= attribute %>
+        </th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @mushrooms.each do |mushroom| %>
+      <tr>
+        <% mushroom.attributes.values[0..-3].each do |value| %>
+        <td>
+          <%= value %>
+        </td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= will_paginate @mushrooms %>
