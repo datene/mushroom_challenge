@@ -1,0 +1,15 @@
+.btn-round {
+  display: block;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  .fas {
+    font-size: 10px;
+  }
+  &:hover, &:active, &:focus, &:visited {
+    text-decoration: none;
+  }
+}

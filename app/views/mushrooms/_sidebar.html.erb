@@ -1,0 +1,25 @@
+<%= form_tag(root_path, method: :get, class: "mushroom-form") do %>
+<div class="row">
+  <% @mushroom_category_options.each_slice(2) do |slice| %>
+    <div class="col-xs-6">
+      <% slice.each do |field, options| %>
+      <div class="form-group">
+        <%= label_tag field, class: "label-sm" do %>
+          <span>
+            <%= (field.gsub(/[_]/, " ")) %> 
+          </span>
+          <% if active_option(options, @active_param_queries[field.to_sym]) %>
+            <a href="#" class="btn-round btn-danger reset-field-button" data-target="<%= field %>">
+              <i class="fas fa-times"></i>
+            </a>
+          <% end %>
+        <% end %>
+        <%= select_tag field, options_for_select_formatter(options, field), id: field, class: "form-control input-sm" %>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%= hidden_field_tag 'query', true %>
+<%= submit_tag "Filter", class: "btn btn-primary" %>
+<% end %>
